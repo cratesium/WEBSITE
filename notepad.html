@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f8f9fa;
+            color: #343a40;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-theme {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        header {
+            background-color: #343a40;
+            padding: 10px;
+            text-align: center;
+        }
+
+        textarea {
+            flex: 1;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #343a40;
+            border: none;
+            outline: none;
+            resize: none;
+            transition: background-color 0.3s, color 0.3s, font-size 0.3s;
+        }
+
+        textarea.dark-theme {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #343a40;
+            color: #fff;
+            border: none;
+            outline: none;
+            margin-right: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        button#toggleTheme {
+            margin-left: auto;
+        }
+
+        button#toggleTheme:hover,
+        button:hover {
+            background-color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button onclick="newFile()">New</button>
+      
+        <button onclick="clearTextArea()">Clear</button>
+        <button id="toggleTheme" onclick="toggleTheme()">Toggle Theme</button>
+        <label for="fontSize">Font Size:</label>
+        <input type="number" id="fontSize" value="16" min="8" max="40" step="2" oninput="changeFontSize(this.value)">
+    
+        <button onclick="downloadFile()">Download</button>
+    </header>
+    
+    <textarea id="textArea"></textarea>
+
+    <script>
+        function newFile() {
+            document.getElementById("textArea").value = "";
+        }
+
+      
+        function clearTextArea() {
+            document.getElementById("textArea").value = "";
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const textarea = document.getElementById("textArea");
+
+            body.classList.toggle("dark-theme");
+            textarea.classList.toggle("dark-theme");
+
+            const isDarkMode = body.classList.contains("dark-theme");
+            localStorage.setItem("darkMode", isDarkMode);
+        }
+
+        function changeFontSize(size) {
+            document.getElementById("textArea").style.fontSize = size + "px";
+        }
+
+        function downloadFile() {
+            const textContent = document.getElementById("textArea").value;
+            const blob = new Blob([textContent], { type: "text/plain" });
+
+            const a = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            a.href = url;
+            a.download = "notepad.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Check for previously saved theme preference
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+            toggleTheme();
+        }
+    </script>
+</body>
+</html>
