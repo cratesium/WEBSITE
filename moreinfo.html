@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shikhar's Intro</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #080808; /* Space Grey */
+            overflow: hidden;
+        }
+
+        .stars {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+            animation: shooting-stars 3s infinite linear;
+            border-radius: 50%; /* Make the stars round */
+        }
+
+        @keyframes shooting-stars {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(200px) translateX(150px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            text-align: center;
+            
+            color: #d3d9d4;
+            font-family: Arial, sans-serif;
+            z-index: 1;
+            width: 600px;
+        }
+        .hello{
+            color: #fbe9d0;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <h1 class="hello">Hello there!</h1>
+        <p>Hey there! I'm Shikhar Pratap Singh, currently in my third year of pursuing a Bachelor of Technology in Computer Science at ABES Engineering College in Ghaziabad.<br>
+            <br>My journey in the realm of technology began at Karl Huber School in Noida, where I completed both my High School and Intermediate education.<br>
+            As a student of computer science, I thrive on the dynamic intersection of innovation and problem-solving.<br>
+            <br>Whether it's diving into algorithms, coding, or exploring the latest developments in machine learning, I'm constantly fueled by curiosity and a drive to deepen my understanding of the digital world.<br>
+            <br>Beyond academics, I'm passionate about [mention any extracurricular activities or interests relevant to your field].<br>
+            <br>With each challenge I tackle and each project I undertake, I'm committed to honing my skills and contributing meaningfully to the ever-evolving landscape of technology.<br>
+            <br>Let's connect and explore the possibilities together!</p>
+    </div>
+
+    <script>
+        // Creating shooting stars dynamically
+        function createStars() {
+            const container = document.body;
+            for (let i = 0; i < 50; i++) {
+                const star = document.createElement('div');
+                star.classList.add('stars');
+                star.style.left = `${Math.random() * window.innerWidth}px`;
+                star.style.top = `${Math.random() * window.innerHeight}px`;
+                container.appendChild(star);
+            }
+        }
+
+        window.onload = function() {
+            createStars();
+        };
+    </script>
+</body>
+</html>
