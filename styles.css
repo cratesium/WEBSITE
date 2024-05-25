@@ -28,3 +28,43 @@
 .line{
     margin-top: 8px;
 }
+.prevButton{
+    margin-left: 500px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    font-style: normal;
+    border: none;
+    border-radius: 5px;
+    color: green;
+    background-color: rgb(214, 203, 143);
+}
+.prevButton:active{
+    background-color: beige;
+    cursor: pointer;
+    box-shadow: rgba(0,0,0,0.6);
+}
+.nextButton{
+    margin-left: 500px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    font-style: normal;
+    border: none;
+    border-radius: 5px;
+    color: green;
+    background-color: rgb(214, 203, 143);
+    transition: 500ms;
+}
+.nextButton:active{
+    background-color: beige;
+    cursor: pointer;
+    box-shadow: rgba(0,0,0,0.6);
+}
+.align{
+    position:relative;
+    width: 600px;
+    margin:  auto;
+}
