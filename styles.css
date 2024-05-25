@@ -1,0 +1,30 @@
+.codes{
+    background-color: antiquewhite;
+    color: black;
+}
+.heading{
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 0px;
+}
+.lineDetail{
+    padding-left: 2px ;
+    padding-top: 4px;
+    padding-bottom: 6%;
+    color:rgb(0, 0, 0);
+    margin-bottom: 10px;
+    margin-top: 20px;
+
+}
+.nextButton{
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.firstWord{
+    color: red;
+    margin-right: 3px;
+}
+.line{
+    margin-top: 8px;
+}
